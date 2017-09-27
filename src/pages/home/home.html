@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Mercado camiloperezv
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+      <ion-item>
+        <ion-input type="text" placeholder="Buscar ..." [(ngModel)]="searchString"></ion-input>
+      </ion-item>
+
+      <button type="button" name="button" ion-button bloc (click)="search()">Buscar</button>
+
+      <ion-item *ngFor="let prod of objectList" class="text-center">
+        <div >
+          <img [src]="prod.thumbnail" alt="" />
+        </div>
+        <div >
+          {{prod.title}}
+          <br/> Vendidos: {{prod.sold_quantity}}
+        </div>
+        <div>
+          {{prod.price | currency:'COP':true}} <a [href]="prod.permalink" className="btn btn-success" target="_blank">Ver</a>
+        </div>
+      </ion-item>
+</ion-content>
